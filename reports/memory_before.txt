@@ -5,33 +5,33 @@ Filename: C:\Users\User\Desktop\lab9\profiler.py
 
 Line #    Mem usage    Increment  Occurrences   Line Contents
 =============================================================
-     5     24.6 MiB     24.6 MiB           1   def slow_function():
-     6     24.6 MiB      0.0 MiB           1       time.sleep(2)
-     7     24.6 MiB      0.0 MiB           1       total = 0
-     8     24.6 MiB      0.0 MiB       10001       for i in range(10000):
-     9     24.6 MiB      0.0 MiB       10000           total += i ** 2
-    10     24.6 MiB      0.0 MiB           1       return total
+     5     24.7 MiB     24.7 MiB           1   def slow_function():
+     6     24.7 MiB      0.0 MiB           1       time.sleep(2)
+     7     24.7 MiB      0.0 MiB           1       total = 0
+     8     24.7 MiB      0.0 MiB       10001       for i in range(10000):
+     9     24.7 MiB      0.0 MiB       10000           total += i ** 2
+    10     24.7 MiB      0.0 MiB           1       return total
 
 
 Filename: C:\Users\User\Desktop\lab9\profiler.py
 
 Line #    Mem usage    Increment  Occurrences   Line Contents
 =============================================================
-    13     24.6 MiB     24.6 MiB           1   def fast_function():
-    14     24.6 MiB      0.0 MiB           1       total = 0
-    15     24.6 MiB      0.0 MiB         101       for i in range(100):
-    16     24.6 MiB      0.0 MiB         100           total += i ** 2
-    17     24.6 MiB      0.0 MiB           1       return total
+    13     24.7 MiB     24.7 MiB           1   def fast_function():
+    14     24.7 MiB      0.0 MiB           1       total = 0
+    15     24.7 MiB      0.0 MiB         101       for i in range(100):
+    16     24.7 MiB      0.0 MiB         100           total += i ** 2
+    17     24.7 MiB      0.0 MiB           1       return total
 
 
 Filename: C:\Users\User\Desktop\lab9\profiler.py
 
 Line #    Mem usage    Increment  Occurrences   Line Contents
 =============================================================
-    20     24.6 MiB     24.6 MiB           1   def memory_intensive_function():
-    21     24.6 MiB      0.0 MiB           1       total = 0
-    22     24.6 MiB -519530.8 MiB    10000001       for i in range(10000000):
-    23     24.6 MiB -519530.7 MiB    10000000           total += i ** 2
-    24     24.5 MiB     -0.1 MiB           1       return total
+    20     24.7 MiB     24.7 MiB           1   def memory_intensive_function():
+    21     24.7 MiB      0.0 MiB           1       total = 0
+    22     24.7 MiB -577528.7 MiB    10000001       for i in range(10000000):
+    23     24.7 MiB -577528.7 MiB    10000000           total += i ** 2
+    24     24.7 MiB     -0.1 MiB           1       return total
 
 

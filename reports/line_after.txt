@@ -3,7 +3,7 @@ PS C:\Users\User\Desktop\lab9> python profiler_lineprofiler_optimized.py
 
 Timer unit: 1e-07 s
 
-Total time: 7.2e-06 s
+Total time: 9.6e-06 s
 File: C:\Users\User\Desktop\lab9\profiler_optimized.py
 Function: slow_function at line 9
 
@@ -11,27 +11,27 @@ Line #      Hits         Time  Per Hit   % Time  Line Contents
 ==============================================================
      9                                           def slow_function():
     10                                               # The artificial delay does not affect the returned result.
-    11         1         72.0     72.0    100.0      return sum_of_squares(10000)
+    11         1         96.0     96.0    100.0      return sum_of_squares(10000)
 
-Total time: 2.7e-06 s
+Total time: 3.7e-06 s
 File: C:\Users\User\Desktop\lab9\profiler_optimized.py
 Function: optimized_fast_function at line 14
 
 Line #      Hits         Time  Per Hit   % Time  Line Contents
 ==============================================================
     14                                           def optimized_fast_function():
-    15         1         27.0     27.0    100.0      return sum_of_squares(100)
+    15         1         37.0     37.0    100.0      return sum_of_squares(100)
 
-Total time: 2.5e-06 s
+Total time: 3.3e-06 s
 File: C:\Users\User\Desktop\lab9\profiler_optimized.py
 Function: memory_intensive_function at line 18
 
 Line #      Hits         Time  Per Hit   % Time  Line Contents
 ==============================================================
     18                                           def memory_intensive_function():
-    19         1         25.0     25.0    100.0      return sum_of_squares(10000000)
+    19         1         33.0     33.0    100.0      return sum_of_squares(10000000)
 
-Total time: 5.8e-06 s
+Total time: 8.1e-06 s
 File: C:\Users\User\Desktop\lab9\profiler_optimized.py
 Function: sum_of_squares at line 4
 
@@ -39,5 +39,5 @@ Line #      Hits         Time  Per Hit   % Time  Line Contents
 ==============================================================
      4                                           def sum_of_squares(n):
      5                                               """Sum squares in range(n) in constant arithmetic operations."""
-     6         3         58.0     19.3    100.0      return n * (n - 1) * (2 * n - 1) // 6
+     6         3         81.0     27.0    100.0      return n * (n - 1) * (2 * n - 1) // 6
 

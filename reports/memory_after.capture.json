@@ -1,0 +1,20 @@
+{
+  "method": "Actual Windows console window captured with ImageGrab",
+  "command": [
+    "C:\\Users\\User\\Desktop\\lab9\\.venv\\Scripts\\python.exe",
+    "-m",
+    "memory_profiler",
+    "profiler_memoryprofiler_optimized.py"
+  ],
+  "returncode": 0,
+  "images": [
+    "memory_after_1.png",
+    "memory_after_2.png"
+  ],
+  "window_rect": [
+    19,
+    10,
+    1343,
+    717
+  ]
+}

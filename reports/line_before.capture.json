@@ -1,0 +1,18 @@
+{
+  "method": "Actual Windows console window captured with ImageGrab",
+  "command": [
+    "C:\\Users\\User\\Desktop\\lab9\\.venv\\Scripts\\python.exe",
+    "profiler_lineprofiler.py"
+  ],
+  "returncode": 0,
+  "images": [
+    "line_before_1.png",
+    "line_before_2.png"
+  ],
+  "window_rect": [
+    10,
+    10,
+    1352,
+    726
+  ]
+}

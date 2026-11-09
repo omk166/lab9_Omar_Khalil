@@ -1,7 +1,7 @@
 Project: lab9_Omar_Khalil
 PS C:\Users\User\Desktop\lab9> python -m coverage run --branch --source=profiler_optimized -m unittest -v test_profiler_optimized
 
-Optimized functions: 0.000134300 seconds; RSS 32.469 -> 32.477 MiB
+Optimized functions: 0.000042400 seconds; RSS 32.023 -> 32.031 MiB
 test_formula_against_independent_loop (test_profiler_optimized.TestOptimizedProfiler.test_formula_against_independent_loop) ... ok
 test_functions (test_profiler_optimized.TestOptimizedProfiler.test_functions) ... ok
 

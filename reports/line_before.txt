@@ -3,40 +3,40 @@ PS C:\Users\User\Desktop\lab9> python profiler_lineprofiler.py
 
 Timer unit: 1e-07 s
 
-Total time: 2.00654 s
+Total time: 2.01317 s
 File: C:\Users\User\Desktop\lab9\profiler.py
 Function: slow_function at line 5
 
 Line #      Hits         Time  Per Hit   % Time  Line Contents
 ==============================================================
      5                                           def slow_function():
-     6         1   20007312.0    2e+07     99.7      time.sleep(2)
-     7         1         22.0     22.0      0.0      total = 0
-     8     10001      26741.0      2.7      0.1      for i in range(10000):
-     9     10000      31283.0      3.1      0.2          total += i ** 2
-    10         1         18.0     18.0      0.0      return total
+     6         1   20003564.0    2e+07     99.4      time.sleep(2)
+     7         1         56.0     56.0      0.0      total = 0
+     8     10001      59563.0      6.0      0.3      for i in range(10000):
+     9     10000      68529.0      6.9      0.3          total += i ** 2
+    10         1         35.0     35.0      0.0      return total
 
-Total time: 5.71e-05 s
+Total time: 9.88e-05 s
 File: C:\Users\User\Desktop\lab9\profiler.py
 Function: fast_function at line 13
 
 Line #      Hits         Time  Per Hit   % Time  Line Contents
 ==============================================================
     13                                           def fast_function():
-    14         1         10.0     10.0      1.8      total = 0
-    15       101        254.0      2.5     44.5      for i in range(100):
-    16       100        303.0      3.0     53.1          total += i ** 2
-    17         1          4.0      4.0      0.7      return total
+    14         1         15.0     15.0      1.5      total = 0
+    15       101        467.0      4.6     47.3      for i in range(100):
+    16       100        500.0      5.0     50.6          total += i ** 2
+    17         1          6.0      6.0      0.6      return total
 
-Total time: 6.35853 s
+Total time: 6.12374 s
 File: C:\Users\User\Desktop\lab9\profiler.py
 Function: memory_intensive_function at line 20
 
 Line #      Hits         Time  Per Hit   % Time  Line Contents
 ==============================================================
     20                                           def memory_intensive_function():
-    21         1          6.0      6.0      0.0      total = 0
-    22  10000001   28766630.0      2.9     45.2      for i in range(10000000):
-    23  10000000   34818614.0      3.5     54.8          total += i ** 2
+    21         1         12.0     12.0      0.0      total = 0
+    22  10000001   27349088.0      2.7     44.7      for i in range(10000000):
+    23  10000000   33888282.0      3.4     55.3          total += i ** 2
     24         1         19.0     19.0      0.0      return total
 

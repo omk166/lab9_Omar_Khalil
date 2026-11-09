@@ -1,9 +1,9 @@
-"""Build a Word report from real logs; images faithfully render those logs."""
+"""Build the Word report using genuine captured Windows console screenshots."""
 from pathlib import Path
 import json
 import re
-from PIL import Image, ImageDraw, ImageFont
 from docx import Document
+from docx.enum.section import WD_ORIENT, WD_SECTION_START
 from docx.shared import Inches, Pt
 
 ROOT = Path(__file__).resolve().parent
@@ -11,26 +11,18 @@ REPORTS = ROOT / 'reports'
 
 
 def snapshots(path):
-    # These are transcript renders, not photographs of a terminal window.
-    lines = ['Project: lab9_Omar_Khalil | Omar Khalil', *path.read_text(encoding='utf-8').rstrip().splitlines()]
-    font = ImageFont.truetype('C:/Windows/Fonts/consola.ttf', 15)
-    images = []
-    for page, start in enumerate(range(0, len(lines), 48), 1):
-        chunk = lines[start:start+48]
-        width = max(1000, int(max(font.getlength(line) for line in chunk)) + 40)
-        canvas = Image.new('RGB', (width, 26 + len(chunk)*21), '#102030')
-        draw = ImageDraw.Draw(canvas)
-        for i, line in enumerate(chunk):
-            draw.text((18, 12+i*21), line, font=font, fill='#ecf2f7')
-        dest = REPORTS / f'{path.stem}_{page}.png'
-        canvas.save(dest)
-        images.append(dest)
+    metadata = json.loads(path.with_suffix('.capture.json').read_text(encoding='utf-8'))
+    images = [REPORTS / name for name in metadata['images']]
+    if metadata['returncode'] != 0 or not all(p.is_file() for p in images):
+        raise RuntimeError('Missing or failed terminal capture: ' + path.stem)
     return images
 
 
 def main():
     metrics = json.loads((REPORTS/'benchmark.json').read_text())
     doc = Document()
+    doc.core_properties.author = 'Omar Khalil'
+    doc.core_properties.title = 'Lab 9: Profiling in Python'
     doc.add_heading('Lab 9: Profiling in Python', 0)
     doc.add_paragraph('Omar Khalil | GitHub: omk166 | Solo submission')
     doc.add_paragraph('Repository: https://github.com/omk166/lab9_Omar_Khalil')
@@ -38,8 +30,9 @@ def main():
     doc.add_paragraph(metrics['python'] + '\n' + metrics['platform'])
     doc.add_paragraph('The original workload uses 10,000, 100, and 10,000,000 iterations, respectively. '
                       'All profiling runs use the full workload. Raw command outputs are in reports/. '
-                      'The snapshots below are faithful rendered terminal transcripts from those outputs, '
-                      'with the required project identifier; they are not desktop screen captures. '
+                      'The screenshots below capture actual Windows console windows after rerunning each '
+                      'command, with the required project identifier. Longer output is displayed in pages '
+                      'inside the console so every line remains readable in the screenshots. '
                       'Package versions are recorded in requirements.txt. Timing comparisons use perf_counter/timeit '
                       'without instrumentation: medians of five repeats, with repeated calls for very short functions.')
     doc.add_heading('Changes and correctness', 1)
@@ -87,11 +80,11 @@ def main():
                       'Before/after process baselines also include profiler and interpreter overhead. '
                       'The handout assertion requiring final RSS to increase was replaced with exact result '
                       'checks and positive RSS measurements; otherwise a correct implementation could fail unpredictably.')
-    doc.add_paragraph('The original memory report contains very large negative values in the Increment column '
-                      'on the repeatedly executed loop lines. These are an aggregation artifact: memory_profiler '
+    doc.add_paragraph('Large negative values can appear in the Increment column '
+                      'on repeatedly executed loop lines. These are an aggregation artifact: memory_profiler '
                       'accumulates differences against the previous line\'s recorded maximum across millions of '
                       'hits. A small RSS drop can therefore be counted repeatedly. They do not mean the program '
-                      'freed hundreds of gigabytes. The Mem usage column stays around 24.6 MiB in this run.')
+                      'freed hundreds of gigabytes. Use the Mem usage column for the reported RSS.')
     doc.add_heading('Coverage analysis', 1)
     for suffix, module in [('before', 'profiler.py'), ('after', 'profiler_optimized.py')]:
         data = json.loads((REPORTS/f'coverage_{suffix}.json').read_text())
@@ -107,12 +100,15 @@ def main():
     doc.add_paragraph('The optimized percentage can be lower despite equivalent tested results: '
                       'the formula removes many covered loop statements while the same two orchestration '
                       'and entry-point statements remain uncovered. Percentages alone do not establish test quality.')
+    evidence = doc.add_section(WD_SECTION_START.NEW_PAGE)
+    evidence.orientation = WD_ORIENT.LANDSCAPE
+    evidence.page_width, evidence.page_height = evidence.page_height, evidence.page_width
     for suffix in ('before', 'after'):
         doc.add_heading(suffix.title() + ' optimization: evidence', 1)
         for tool, title in [('cprofile','cProfile'),('line','line_profiler'),('memory','memory_profiler'),('tests','Unit tests'),('coverage','Coverage')]:
             doc.add_heading(title, 2)
             for path in snapshots(REPORTS/f'{tool}_{suffix}.txt'):
-                doc.add_picture(str(path), width=Inches(6.5))
+                doc.add_picture(str(path), width=Inches(9.4))
     for section in doc.sections:
         section.left_margin = Inches(0.7)
         section.right_margin = Inches(0.7)

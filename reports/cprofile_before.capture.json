@@ -1,0 +1,21 @@
+{
+  "method": "Actual Windows console window captured with ImageGrab",
+  "command": [
+    "C:\\Users\\User\\Desktop\\lab9\\.venv\\Scripts\\python.exe",
+    "-m",
+    "cProfile",
+    "-s",
+    "time",
+    "profiler.py"
+  ],
+  "returncode": 0,
+  "images": [
+    "cprofile_before_1.png"
+  ],
+  "window_rect": [
+    10,
+    10,
+    1352,
+    726
+  ]
+}

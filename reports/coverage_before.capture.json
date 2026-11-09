@@ -1,0 +1,20 @@
+{
+  "method": "Actual Windows console window captured with ImageGrab",
+  "command": [
+    "C:\\Users\\User\\Desktop\\lab9\\.venv\\Scripts\\python.exe",
+    "-m",
+    "coverage",
+    "report",
+    "-m"
+  ],
+  "returncode": 0,
+  "images": [
+    "coverage_before_1.png"
+  ],
+  "window_rect": [
+    19,
+    10,
+    1343,
+    717
+  ]
+}
