@@ -12,11 +12,11 @@ REPORTS = ROOT / 'reports'
 
 def snapshots(path):
     # These are transcript renders, not photographs of a terminal window.
-    lines = ['Project: lab9_Omar_Khalil | Omar Khalil', *path.read_text(encoding='utf-8').splitlines()]
+    lines = ['Project: lab9_Omar_Khalil | Omar Khalil', *path.read_text(encoding='utf-8').rstrip().splitlines()]
     font = ImageFont.truetype('C:/Windows/Fonts/consola.ttf', 15)
     images = []
-    for page, start in enumerate(range(0, len(lines), 42), 1):
-        chunk = lines[start:start+42]
+    for page, start in enumerate(range(0, len(lines), 48), 1):
+        chunk = lines[start:start+48]
         width = max(1000, int(max(font.getlength(line) for line in chunk)) + 40)
         canvas = Image.new('RGB', (width, 26 + len(chunk)*21), '#102030')
         draw = ImageDraw.Draw(canvas)
