@@ -1,0 +1,28 @@
+Project: lab9_Omar_Khalil
+PS C:\Users\User\Desktop\lab9> python -m memory_profiler profiler_memoryprofiler_optimized.py
+
+Filename: C:\Users\User\Desktop\lab9\profiler_optimized.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+     9     24.6 MiB     24.6 MiB           1   def slow_function():
+    10                                             # The artificial delay does not affect the returned result.
+    11     24.6 MiB      0.0 MiB           1       return sum_of_squares(10000)
+
+
+Filename: C:\Users\User\Desktop\lab9\profiler_optimized.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+    14     24.6 MiB     24.6 MiB           1   def optimized_fast_function():
+    15     24.6 MiB      0.0 MiB           1       return sum_of_squares(100)
+
+
+Filename: C:\Users\User\Desktop\lab9\profiler_optimized.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+    18     24.6 MiB     24.6 MiB           1   def memory_intensive_function():
+    19     24.6 MiB      0.0 MiB           1       return sum_of_squares(10000000)
+
+

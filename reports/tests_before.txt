@@ -1,0 +1,15 @@
+Project: lab9_Omar_Khalil
+PS C:\Users\User\Desktop\lab9> python -m coverage run --branch --source=profiler -m unittest -v test_profiler
+
+fast_function: 0.000032 seconds
+memory_intensive_function: 1.699124 seconds
+RSS before: 32.547 MiB; after: 32.555 MiB
+slow_function: 2.004176 seconds
+test_fast_function (test_profiler.TestProfiler.test_fast_function) ... ok
+test_memory_intensive_function (test_profiler.TestProfiler.test_memory_intensive_function) ... ok
+test_slow_function (test_profiler.TestProfiler.test_slow_function) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 3.726s
+
+OK

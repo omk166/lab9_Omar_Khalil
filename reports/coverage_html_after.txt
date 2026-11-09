@@ -1,0 +1,4 @@
+Project: lab9_Omar_Khalil
+PS C:\Users\User\Desktop\lab9> python -m coverage html -d htmlcov_after
+
+Wrote HTML report to htmlcov_after\index.html

@@ -1,0 +1,4 @@
+Project: lab9_Omar_Khalil
+PS C:\Users\User\Desktop\lab9> python -m coverage json -o reports/coverage_before.json
+
+Wrote JSON report to reports/coverage_before.json

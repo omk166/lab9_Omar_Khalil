@@ -1,0 +1,21 @@
+{
+  "python": "3.13.7 (tags/v3.13.7:bcee1c3, Aug 14 2025, 14:15:11) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.22631-SP0",
+  "functions": {
+    "slow_function": {
+      "before_seconds": 2.0019036000594497,
+      "after_seconds": 1.4036600012332202e-07,
+      "speedup": 14262026.404546883
+    },
+    "fast_function": {
+      "before_seconds": 4.521836997009814e-06,
+      "after_seconds": 1.0768000036478043e-07,
+      "speedup": 41.99328549119136
+    },
+    "memory_intensive_function": {
+      "before_seconds": 0.5814528996124864,
+      "after_seconds": 1.5712799970060586e-07,
+      "speedup": 3700504.6886639926
+    }
+  }
+}

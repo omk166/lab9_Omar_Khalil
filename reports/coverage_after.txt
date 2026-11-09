@@ -1,0 +1,8 @@
+Project: lab9_Omar_Khalil
+PS C:\Users\User\Desktop\lab9> python -m coverage report -m
+
+Name                    Stmts   Miss Branch BrPart  Cover   Missing
+-------------------------------------------------------------------
+profiler_optimized.py      12      2      2      1    79%   23, 27
+-------------------------------------------------------------------
+TOTAL                      12      2      2      1    79%
